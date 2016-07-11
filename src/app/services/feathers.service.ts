@@ -25,6 +25,10 @@ export class RestService {
   getService(service: string) {
     return this._app.service(service);
   }
+
+  getApp() {
+    return this._app;
+  }
 }
 
 @Injectable()
@@ -42,5 +46,9 @@ export class SocketService {
 
   getService(service: string) {
     return this._app.service(service);
+  }
+
+  getApp() {
+    return this._app;
   }
 }

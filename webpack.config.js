@@ -7,11 +7,11 @@ var webpackConfig = {
   entry: {
     'polyfills': './src/polyfills.browser.ts',
     'vendor':    './src/vendor.browser.ts',
-    'main':       './src/main.browser.ts',
+    'main':       './src/main.browser.ts'
   },
 
   output: {
-    path: './dist',
+    path: './dist'
   },
 
   plugins: [
@@ -25,8 +25,7 @@ var webpackConfig = {
       { test: /\.ts$/, loaders: ['awesome-typescript-loader', 'angular2-template-loader'] },
       { test: /\.css$/, loaders: ['to-string-loader', 'css-loader'] },
       { test: /\.html$/, loader: 'raw-loader' },
-      { test: /\.json$/, loader: 'json-loader' },
-
+      { test: /\.json$/, loader: 'json-loader' }
     ]
   }
 
@@ -53,7 +52,7 @@ var defaultConfig = {
           // these packages have problems with their sourcemaps
           path.join(__dirname, 'node_modules', 'rxjs'),
           path.join(__dirname, 'node_modules', '@angular2-material'),
-          path.join(__dirname, 'node_modules', '@angular'),
+          path.join(__dirname, 'node_modules', '@angular')
         ]
       }
     ],
@@ -80,8 +79,8 @@ var defaultConfig = {
     Buffer: 0,
     clearImmediate: 0,
     setImmediate: 0
-  },
-}
+  }
+};
 
 var webpackMerge = require('webpack-merge');
 module.exports = webpackMerge(defaultConfig, webpackConfig);

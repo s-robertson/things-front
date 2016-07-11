@@ -1,22 +1,21 @@
 import { Component } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
-import { GameService } from './services/game.service';
+import { ROUTER_DIRECTIVES, Router } from '@angular/router';
+import { RestService } from './services/feathers.service';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app',
   pipes: [],
-  providers: [ GameService ],
+  providers: [ AuthService ],
   directives: [ ROUTER_DIRECTIVES ],
   templateUrl: './app.html',
 })
 export class App {
-  private gameService: GameService;
-
-  constructor(gameService: GameService) {
-    this.gameService = gameService;
-  }
+  constructor(private authService: AuthService, private restService: RestService, private router: Router) {}
 
   ngOnInit() {
-    this.gameService.create({ text: "blah" });
+    if (!this.authService.isAuthenticated()) {
+      this.router.navigate(['./login']);
+    }
   }
 }

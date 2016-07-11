@@ -9,9 +9,6 @@ export class GameService {
   constructor(_socketService: SocketService, _restService: RestService) {
     this._socket = _socketService.getService('games');
     this._rest = _restService.getService('games');
-
-    console.log(this._socket, 'socketttt');
-    console.log(this._rest, 'resttttt');
   }
 
   create(game: any) {
